@@ -1,0 +1,154 @@
+//  Variables
+//  ---------
+
+$fg-color: map-get($default-colors, 'body-font-color');
+$fg-sub-color: map-get($default-colors, 'text-body-color');
+
+$bg-color: map-get($default-colors, 'background-color');
+
+//  Rules
+//  -----
+
+.comments-area {
+
+  .comments-heading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 25px;
+
+    // Separators on the left and right of the title
+    &::before, &::after {
+      content: "";
+      display: inline-block;
+
+      width: 100%;
+      height: 1px;
+
+      background-color: transparentize($fg-color, 0.54);
+    }
+
+    .heading {
+      flex-shrink: 0;
+      margin: 0 20px;
+
+      font-size:   .75rem;
+      font-weight: 600;
+
+      text-transform: uppercase;
+      letter-spacing: 1.6px;
+    }
+  }
+
+  .comment-list {
+    @extend .list-unstyled;
+
+    .comment {
+      margin-bottom: 21px;
+
+      border-bottom: 1px solid;
+      border-color: darken($bg-color, 5.5%);
+    }
+
+    .children {
+      @extend .list-unstyled;
+
+      padding-left: 43px;
+      margin-top: 20px;
+
+      .comment { border: 0 !important; }
+    }
+
+    .comment-body {
+      position: relative;
+
+      .comment-meta {
+        display: inline-flex;
+        flex-direction: column;
+
+        position: relative;
+      }
+
+      .comment-author {
+
+        img.avatar {
+          position: absolute;
+          border-radius: 4px;
+        }
+
+        b.fn {
+          font-size:   .875rem;
+          font-weight: 600;
+
+          margin-left: 60px;
+
+          letter-spacing: 0.4px;
+
+          -webkit-font-smoothing: antialiased;
+          -moz-osx-font-smoothing: grayscale;
+
+          a { color: inherit; }
+        }
+
+        .says {
+          font-size:  .875rem;
+          color:      lighten($fg-color, 5%);
+        }
+      }
+
+      .comment-metadata a {
+        display: flex;
+        margin-left: 60px;
+
+        font-size: .78125rem;
+        color:     lighten($fg-color, 5%);
+      }
+
+      .comment-content {
+        font-size:   .875rem;
+        font-weight: 400;
+
+        margin: 10px 0 0 60px;
+
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+
+      .reply {
+        position: absolute;
+        bottom: 0px;
+        right: 0px;
+
+        display: inline-flex;
+        padding: 4px 10px;
+
+        // TODO:
+        background-color: darken($bg-color, 8%);
+
+        .comment-reply-link {
+          font-size:   .59375rem;
+          font-weight: 600;
+          color: inherit;
+
+          text-transform: uppercase;
+          letter-spacing: 0.3px;
+        }
+      }
+    }
+  }
+}
+
+.comment-form p {
+  @extend .form-group;
+}
+.comment-form input[type="text"],
+.comment-form input[type="email"],
+.comment-form input[type="url"],
+.comment-form textarea {
+  @extend .form-control;
+}
+.comment-form input[type="submit"] {
+  @extend .btn;
+  @extend .btn-secondary;
+}

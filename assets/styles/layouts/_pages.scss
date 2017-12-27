@@ -1,0 +1,150 @@
+//  Variables
+//  ---------
+
+$primary-color: map-get($default-colors, 'primary-color');
+$fg-color: map-get($default-colors, 'body-font-color');
+
+$heading-color: map-get($default-colors, 'heading-color');
+$content-color: map-get($default-colors, 'text-body-color');
+
+//  Rules
+//  -----
+
+//  Sans-serif Page Template
+//  ------------------------
+
+.page-template-page-sans-serif .panel-right .content {
+  display: flex;
+  align-items: center;
+
+  padding: 0 16.471650459% !important;
+  padding-top: 20% !important;
+
+  .page.hentry {
+
+    .post-heading {
+      display: flex;
+      justify-content: flex-start;
+
+      margin-bottom: 25px;
+
+      color: $heading-color;
+
+      .title {
+        display: flex;
+        flex-direction: column;
+
+        font-weight: 400;
+        font-size:   1.6875rem;
+        color: inherit;
+
+        margin: 0;
+
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+
+        &::after {
+          content: "";
+          display: inline-block;
+
+          width: 130%;
+          height: 2px;
+
+          margin-top: 10px;
+
+          background-color: $primary-color;
+        }
+      }
+    }
+
+    .post-content {
+      font-size:   .95625rem;
+      font-weight: 300;
+      color:       lighten($content-color, 9%);
+      //color:       #696969;
+    }
+  }
+}
+
+//  404 Page
+//  --------
+
+.error404 .error-404 {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+  margin-top: 28.097982709%;
+
+  .heading {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    margin-bottom: 1.875rem;
+
+    .heading-main {
+      font-family: $font-family-serif;
+      font-size:   4.125rem;
+      letter-spacing: 3.14px;
+
+      margin-bottom: 1.5rem;
+
+      color: inherit;
+    }
+
+    .subheading {
+      font-size: 1.24137931rem;
+      text-align: center;
+
+      @include media-breakpoint-up(sm) { font-size: 1.5625rem; }
+
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+
+      color: inherit;
+      margin: 0;
+    }
+  }
+
+  form.search-form {
+    .search-field-wrapper {
+      display: flex;
+      align-items: center;
+
+      padding: 0 7px 5px 7px;
+      border-bottom: 1px solid;
+      border-color: $fg-color;
+      color: transparentize($fg-color, 0.26);
+
+      .search-field {
+        font-size:   .9375rem;
+        font-weight: 300;
+        color: inherit;
+
+        width: 345px;
+
+        padding: 0 10px;
+
+        background-color: transparent;
+        border-radius: 0;
+        border: 0;
+
+        &::placeholder {
+          //color: transparentize($fg-color, 0.26);
+          color: inherit;
+          letter-spacing: 0.6px;
+        }
+      }
+
+      @include icon {
+        display: flex;
+        font-size: 0.765rem;
+        //color: transparentize($fg-color, 0.26);
+        color: inherit;
+
+        margin-bottom: -2px;
+      }
+    }
+  }
+}

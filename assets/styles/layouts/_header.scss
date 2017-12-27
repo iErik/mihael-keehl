@@ -1,0 +1,484 @@
+//  Variables
+//  ---------
+
+$bg-color: map-get($default-colors, 'primary-color');
+$fg-color: map-get($default-colors, 'accent-color');
+
+$brand-font-size: 1.0625rem;
+
+//  Rules
+//  -----
+
+.page-heading {
+  display: flex;
+  flex-shrink: 0;
+  justify-content: center;
+
+  padding-top: 1.25rem;
+
+  @include media-breakpoint-up(lg) { padding: .9375rem 0; }
+
+  .heading {
+    font-size: 1rem;
+    font-weight: 600;
+
+    letter-spacing: 2.8px;
+    text-transform: uppercase;
+
+    margin: 0;
+
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+
+    @include media-breakpoint-up(lg) { font-size: 0.82rem; letter-spacing: 2px; }
+  }
+}
+
+//  Main Page Header
+//  ----------------
+
+.page-header {
+  display: flex;
+  flex-direction: column;
+
+  width: 100%;
+  height: 100%;
+
+  padding: 55px 70px 15px 70px;
+
+  background-color: $bg-color;
+  box-shadow: 3px 0 19px -1px rgba(0, 0, 0, 0.41);
+
+  color: $fg-color;
+
+  .panel-controls {
+    display: flex;
+    justify-content: space-between;
+    flex-shrink: 0;
+
+    .panel-control {
+      display: flex;
+      opacity: 1;
+      transition: opacity 330ms ease-in;
+
+      &:not(:last-child) { margin-right: 50px; }
+
+      &.fade-out {
+        opacity: 0;
+        transition: opacity 330ms ease-out 0s;
+      }
+
+      @include icon {
+        display: flex;
+        font-size: 1.22rem;
+        color: inherit;
+
+        &.icn-close { font-size: 1.45rem; }
+        &.icn-menu { font-size: 2rem; &::before { line-height: 0.5; } }
+        //&::before { line-height: 0.5; }
+      }
+
+      &.search-form {
+
+        form.search-form { margin-right: 25px; }
+        form.search-form .search-submit { display: none; }
+
+        form.search-form .search-field {
+          position: relative;
+          z-index: -9999;
+          width: 0px;
+
+          transition-property: width, color, border-color, z-index;
+          transition-duration: 250ms, 200ms, 80ms, 0s;
+          transition-delay: 200ms, 0ms, 400ms, 450ms;
+          transition-timing-function: ease-out;
+
+          font-size:      .875rem;
+          font-weight:    400;
+          color:          rgba($fg-color, 0.0);
+          letter-spacing: 1.5px;
+
+          -webkit-font-smoothing: antialiased;
+          -moz-osx-font-smoothing: grayscale;
+
+          border: 0;
+          border-radius: 0;
+          background-color: transparent;
+
+          border-bottom-width: 1px;
+          border-bottom-style: solid;
+          border-color: rgba($fg-color, 0.0);
+          padding: 0px 5px 4px 5px;
+
+          &::placeholder { color: inherit !important; }
+        }
+
+        &.is-active form.search-form .search-field {
+          z-index: 50;
+          width: 170px;
+          color: rgba($fg-color, 0.9);
+          border-color: rgba($fg-color, 0.5);
+
+          transition-property: width, color, border-color, z-index;
+          transition-duration: 250ms, 200ms, 0s, 0s;
+          transition-delay: 0ms, 250ms, 0ms, 0ms;
+          transition-timing-function: ease-in;
+        }
+      }
+    }
+  }
+
+  .content-wrap {
+    position: relative;
+    flex-grow: 1;
+    width: 100%;
+  }
+
+  .content {
+    opacity: 1;
+    z-index: 10;
+
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+
+    transition: opacity 330ms ease-in 350ms;
+
+    // TODO: Increase font-size for bigger resolutions
+    // TODO: Perhaps add animation when chaning sizes
+    .site-info {
+      position: absolute;
+      top: 25%;
+
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+
+      font-size: 16px;
+      color: inherit;
+
+      .site-brand {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+
+        position: relative;
+
+        font-size:   1.25em;
+        font-weight: 500;
+
+        letter-spacing: 1.7px;
+        text-transform: uppercase;
+        color: inherit;
+
+        &:not(:last-child) {
+          padding-bottom: 11px;
+          margin-bottom:  13.5px;
+
+        }
+
+        outline: 0 !important;
+        &:hover { text-decoration: none; }
+
+        &:not(.hide-title)::after {
+          content: "";
+
+          width: 100%;
+          height: 1px;
+
+          background-color: rgba($fg-color, 0.35);
+
+          position: absolute;
+          bottom: -1px;
+          left: 50%;
+
+          transform: translateX(-50%);
+        }
+
+        .site-logo { width: 4.25em; margin-bottom: 20px; }
+        &.hide-title .site-logo { margin: 0; }
+      }
+
+      .site-desc {
+        font-size:   1em;
+        font-weight: 300;
+
+        letter-spacing: 0.7px;
+        text-align: center;
+
+        line-height: 1.35;
+      }
+    }
+
+    &.fade-out {
+      opacity: 0;
+      transition: opacity 330ms ease-out 0s;
+    }
+  }
+}
+
+//  Header Widget Area (Sidebar)
+//  ----------------------------
+
+.page-header .widget-area {
+  display: flex;
+  flex-direction: column;
+
+  position: relative;
+  z-index:  -20;
+  opacity:  0;
+
+  width:  100%;
+
+  max-height: 1px;
+  overflow:   hidden;
+
+  padding: 95px 0 10px 0;
+  margin-bottom: 45px;
+
+  transition: opacity, z-index, max-height, overflow;
+  transition-duration: 330ms, 0s, 0s, 0s;
+  transition-delay: 0s, 330ms, 330ms, 330ms;
+  transition-timing-function: ease-out;
+
+  &.is-active {
+    opacity: 1;
+    z-index: 20;
+
+    max-height: 9999px;
+    overflow:   visible;
+
+    transition-property: opacity, z-index, max-height, overflow;
+    transition-duration: 330ms, 0s, 0s, 0s;
+    transition-delay:  350ms, 340ms, 350ms, 350ms;
+    transition-timing-function: ease-in;
+  }
+}
+
+//  Primary Navigation
+//  ------------------
+
+.header .site-navigation {
+  width: 100%;
+
+  color: inherit;
+
+  .menu-primary ul, ul.menu-primary {
+    padding: 0;
+    margin:  0;
+    list-style: none;
+
+    li {
+      border-bottom: 1px solid;
+      border-color: transparentize($fg-color, 0.84);
+      padding-bottom: 6px;
+
+      color: inherit;
+
+      &:not(:last-child) { margin-bottom: 13px; }
+
+      a {
+        font-size:   .875rem;
+        font-weight: 300;
+        color:       inherit;
+
+        letter-spacing:  2.2px;
+        text-transform:  uppercase;
+        text-decoration: none;
+      }
+    }
+  }
+}
+
+//  Social Nav Menu
+//  ---------------
+
+.page-header .social-navigation {
+  position: absolute;
+  bottom: 0px;
+
+  flex-shrink: 0;
+
+  color: inherit;
+
+  .menu-social-container { overflow: hidden; }
+
+  .menu-social {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    // TODO: Perhaps use unstyling class
+    padding: 0;
+    margin:  0;
+    list-style: none;
+
+    .menu-item {
+      position: relative;
+      margin: 0;
+      color: inherit;
+
+      &:not(:last-child) { margin-right: 30px; }
+
+      a {
+        display: block;
+        text-decoration: none;
+        color: inherit !important;
+
+        &::before {
+          display: flex;
+          font-family:  "mihael-icons" !important;
+          font-style:    normal !important;
+          font-weight:   normal !important;
+          font-variant:  normal !important;
+          text-transform: none !important;
+          speak: none;
+          line-height: 1;
+          -webkit-font-smoothing: antialiased;
+          -moz-osx-font-smoothing: grayscale;
+        }
+
+        &[href*="twitter.com"]::before { content: "\f007"; font-size: 1.1rem; }
+        &[href*="facebook.com"]::before { content: "\f008"; }
+        &[href*="tumblr.com"]::before { content: "\f009"; }
+        &[href*="plus.google.com"]::before { content: "\f010"; }
+        &[href*="behance.net"]::before { content: "\f011"; font-size: 1.45rem; }
+        &[href*="gitlab.com"]::before { content: "\f012"; font-size: 1.13rem; }
+        &[href*="github.com"]::before { content: "\f013"; font-size: 1.3rem; }
+        &[href*="dribbble.com"]::before { content: "\f014"; }
+      }
+
+      // TODO: Perhaps move this to a more general module
+      .screen-reader-text {
+        overflow: hidden;
+        clip: rect(1px, 1px, 1px, 1px);
+        position: absolute !important;
+        width: 1px;
+        height: 1px;
+      }
+    }
+  }
+}
+
+//  Mobile Page Header
+//  ------------------
+
+// TODO: We are repeating ourselves in some sections of this
+// class a bit too often, we have to see what we can do about this.
+
+.page-header-mobile {
+  position: fixed;
+  z-index: 20;
+  top: 0px;
+  left: 0px;
+
+  width: 100%;
+  height: 4.375rem;
+
+  background-color: $bg-color;
+  color: $fg-color;
+  box-shadow: 0px 2px 18px -1px rgba(0, 0, 0, 0.35);
+
+  &.is-active { z-index: 2000; }
+
+  .content {
+    display: flex;
+    align-items: center;
+
+    height: 100%;
+
+    padding: 0 40px;
+
+    .site-info {
+      display: flex;
+      flex-grow: 1;
+
+      .site-brand {
+        display: flex;
+        align-items: center;
+
+        font-size:   1.25rem;
+        font-weight: 600;
+
+        letter-spacing: 1.6px;
+        text-transform: uppercase;
+        color: inherit;
+
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+
+        outline: 0 !important;
+
+        &:hover { text-decoration: none; }
+
+        .site-logo { width: 2.1875rem; margin-right: 1.5625rem; }
+      }
+    }
+
+    .panel-controls {
+      display: flex;
+      flex-shrink: 0;
+
+      .panel-control {
+        display: flex;
+        opacity: 1;
+        transition: opacity 300ms ease-in;
+
+        &.fade-out {
+          opacity: 0;
+          transition: opacity 300ms ease-out 0s;
+        }
+
+        @include icon {
+          display: flex;
+
+          font-size: 1.45rem;
+          color: inherit;
+
+          &.icn-menu { font-size: 2rem; transform: scaleX(-1); }
+        }
+      }
+    }
+  }
+}
+
+
+//  Mobile Widget Area
+//  ------------------
+
+.page-header-mobile .widget-area {
+  position: fixed;
+  z-index:  -200;
+  top:  4.375rem;
+  left: 0px;
+
+  display: flex;
+  flex-direction: column;
+
+  width: 100%;
+  height: calc(100% - 4.375rem);
+
+  background-color: $bg-color;
+  color:            $fg-color;
+  opacity: 0;
+
+  padding: 30px 45px 0 45px;
+
+  transition-property: opacity, z-index;
+  transition-duration: 300ms, 0ms;
+  transition-delay: 0ms, 300ms;
+  transition-timing-function: ease-out;
+
+  &.is-active {
+    z-index: 9999;
+    opacity: 1;
+
+    transition-property: opacity, z-index;
+    transition-duration: 300ms, 0ms;
+    transition-delay: 0ms, 300ms;
+    transition-timing-function: ease-in;
+  }
+}

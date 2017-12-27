@@ -1,0 +1,127 @@
+//  Variables
+//  ---------
+
+$fg-color: map-get($default-colors, 'accent-color');
+
+//  Rules
+//  -----
+
+.widget {
+  color: inherit;
+  margin-top: 33px;
+
+  .widget-title {
+    font-size:   .875rem;
+    font-weight: 500;
+
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+
+    margin-bottom: 9px;
+  }
+
+  ul {
+    padding: 0;
+    margin:  0;
+    list-style: none;
+  }
+
+  a {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-size:   .78125rem;
+    color: inherit;
+  }
+}
+
+
+//  Default Widgets
+//  ---------------
+
+//  Search Widget
+.widget_search {
+  form.search-form .search-submit { display: none; }
+
+  form.search-form .search-field {
+    font-size:      .875rem;
+    font-weight:    400;
+    color:          rgba($fg-color, 0.9);
+    letter-spacing: 1.5px;
+
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+
+    border: 0;
+    border-radius: 0;
+    background-color: transparent;
+
+    width: 170px;
+    padding: 5px;
+
+    &::placeholder { color: inherit !important; }
+  }
+
+  form.search-form label {
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    border-color: rgba($fg-color, 0.5);
+
+    &::before {
+      content: "\f017";
+      font-size: .8125rem;
+
+      font-family: "mihael-icons" !important;
+      font-style: normal !important;
+      font-weight: normal !important;
+      font-variant: normal !important;
+      text-transform: none !important;
+
+      speak: none;
+      line-height: 1;
+      margin-right: .375rem;
+
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+  }
+}
+
+//  Text Widget
+.widget_text {
+
+  .textwidget {
+    font-size:   .78125rem;
+    font-weight: 300;
+    line-height: 1.52;
+
+    p { letter-spacing: 0.5px; }
+    :last-child { margin-bottom: 0; }
+  }
+}
+
+//  Recent Posts Widget
+.widget_recent_entries {
+  li {
+    display: flex;
+
+    &:not(:last-child) { margin-bottom: 2.5px; }
+
+    a {
+      font-family: $font-family-serif;
+      font-weight: 400;
+    }
+  }
+}
+
+//  Categories Widget
+.widget_categories {
+  ul .cat-item {
+    display: flex;
+    &:not(:last-child) { margin-bottom: 2px; }
+  }
+
+  ul .cat-item a {
+    font-weight: 600;
+  }
+
+}
