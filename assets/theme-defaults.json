@@ -1,0 +1,11 @@
+{
+  "default-colors": {
+    "primary-color": "#5845E8",
+    "accent-color": "#FFF",
+    "background-color": "#F9F9F9",
+    "body-font-color": "#454545",
+
+    "heading-color": "#454545",
+    "text-body-color": "#525252"
+  }
+}
