@@ -3,7 +3,7 @@
 <div class="panel-top header page-header-mobile d-lg-none">
   <div class="content">
     <div class="site-info">
-      <a class="site-brand" href="<?= esc_url( home_url('/') ); ?>">
+      <a class="site-brand" href="<?php echo esc_url( home_url('/') ); ?>">
         <?php if ( !empty($site_logo) ) : ?>
           <img
             class="site-logo"

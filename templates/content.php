@@ -6,13 +6,17 @@
     <div class="post-heading">
       <div class="post-title">
         <h2 class="title h4">
-          <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+          <a href="<?php the_permalink(); ?>">
+            <?php the_title(); ?>
+          </a>
         </h2>
       </div>
 
       <div class="post-meta">
-        <time class="post-time" datetime="<?= get_post_time('c', true); ?>" >
-          <?= get_the_date(); ?>
+        <time class="post-time" datetime="<?php echo get_post_time('c', true); ?>" >
+          <a href="<?php echo esc_url(get_permalink()); ?>">
+            <?php echo get_the_date(); ?>
+          </a>
         </time>
       </div>
     </div>
