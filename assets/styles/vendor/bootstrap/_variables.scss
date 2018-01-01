@@ -103,7 +103,7 @@ $colors: (
 ) !default;
 
 $theme-colors: (
-  primary: $blue,
+  primary: map-get($default-colors, 'primary-color'),
   secondary: $gray-600,
   success: $green,
   info: $cyan,
@@ -165,9 +165,10 @@ $body-color:    map-get($default-colors, 'body-font-color') !default;
 //
 // Style anchor elements.
 
-$link-color:            map-get($default-colors, 'primary-color') !default;
+//$link-color:            map-get($default-colors, 'primary-color') !default;
+$link-color:            none;
 $link-decoration:       none !default;
-$link-hover-color:      darken($link-color, 15%) !default;
+$link-hover-color:      none;
 $link-hover-decoration: underline !default;
 
 // Paragraphs
