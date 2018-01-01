@@ -1,0 +1,70 @@
+//  Variables
+//  ---------
+
+$fg-color: map-get($default-colors, 'accent-color');
+$bg-color: map-get($default-colors, 'background-color');
+
+//  Rules
+//  -----
+
+.posts-navigation {
+  flex-shrink: 0;
+
+  //  NOTE: Had to use padding here because Firefox will simply
+  //  ignore margin-bottom.
+  padding-bottom: 30px;
+
+  .screen-reader-text { top: 0; left: 0; }
+
+  .nav-links {
+    display: flex;
+    justify-content: space-between;
+
+    .nav-previous, .nav-next {
+      display: inline-flex;
+
+      padding: 7px 10px;
+      background-color: darken($bg-color, 5%);
+      border-width: 1px;
+      border-style: solid;
+      border-color: darken($bg-color, 9.5%);
+
+      a {
+        font-size:   .59375rem;
+        font-weight: 600;
+        color:       inherit;
+
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+    }
+  }
+}
+
+.pagination {
+  display: flex;
+  justify-content: space-between;
+
+  margin-top: 1.5625rem;
+
+  a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 7px 10px;
+
+    background-color: darken($bg-color, 5%);
+    border-width: 1px;
+    border-style: solid;
+    border-color: darken($bg-color, 9.5%);
+
+    font-family:  $font-family-sans-serif;
+    font-size:   .59375rem;
+    font-weight: 600;
+    color:       inherit;
+
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+}

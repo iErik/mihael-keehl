@@ -7,8 +7,8 @@ $bg-color: map-get($default-colors, 'background-color');
 $heading-color: map-get($default-colors, 'heading-color');
 $text-color:    map-get($default-colors, 'text-body-color');
 
-//  Style Rules
-//  -----------
+//  Rules
+//  -----
 
 //  Post Feed & Post Feed Entries
 //  -----------------------------
@@ -25,42 +25,8 @@ $text-color:    map-get($default-colors, 'text-body-color');
   }
 }
 
-.posts-navigation {
-  flex-shrink: 0;
-
-  //  NOTE: Had to use padding here because Firefox will simply
-  //  ignore margin-bottom.
-  padding-bottom: 30px;
-
-  .screen-reader-text { top: 0; left: 0; }
-
-  .nav-links {
-    display: flex;
-    justify-content: space-between;
-
-    .nav-previous, .nav-next {
-      display: inline-flex;
-
-      padding: 7px 10px;
-      background-color: darken($bg-color, 5%);
-      border-width: 1px;
-      border-width: solid;
-      border-color: darken($bg-color, 9.5%);
-
-      a {
-        font-size:   .59375rem;
-        font-weight: 600;
-        color:       inherit;
-
-        text-transform: uppercase;
-        letter-spacing: 1px;
-      }
-    }
-  }
-}
-
 .post-feed .hentry {
-  padding-bottom: 16px;
+  padding-bottom: 13px;
   margin-bottom:  20px;
 
   border-color: darken($bg-color, 10.3%);
@@ -103,6 +69,8 @@ $text-color:    map-get($default-colors, 'text-body-color');
           white-space: nowrap;
           letter-spacing: 2px;
           text-transform: uppercase;
+
+          a { color: inherit; }
         }
       }
     }
@@ -113,10 +81,13 @@ $text-color:    map-get($default-colors, 'text-body-color');
       font-weight: 300;
 
       color: $text-color;
+
+      &:last-child { margin-bottom: 3px; }
     }
 
     .post-categories {
       display: flex;
+      flex-wrap: wrap;
 
       margin-top: 13px;
 
@@ -125,6 +96,7 @@ $text-color:    map-get($default-colors, 'text-body-color');
 
         padding: 5px 10px;
         margin-right: 3px;
+        margin-bottom: 3px;
 
         background-color: darken($bg-color, 5.5%);
 
@@ -207,5 +179,12 @@ $text-color:    map-get($default-colors, 'text-body-color');
     font-family: $font-family-serif;
     font-weight: 300;
     color: $text-color;
+  }
+
+  .post-footer .post-tags {
+    font-size: .75rem;
+    color: darken($fg-color, 38.5%);
+
+    a { color: inherit; }
   }
 }

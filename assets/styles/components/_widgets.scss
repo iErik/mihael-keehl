@@ -27,10 +27,12 @@ $fg-color: map-get($default-colors, 'accent-color');
   }
 
   a {
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
     font-size:   .78125rem;
+    font-weight: 300;
     color: inherit;
+
+    //-webkit-font-smoothing: antialiased;
+    //-moz-osx-font-smoothing: grayscale;
   }
 }
 
@@ -44,24 +46,24 @@ $fg-color: map-get($default-colors, 'accent-color');
 
   form.search-form .search-field {
     font-size:      .875rem;
-    font-weight:    400;
+    font-weight:    300;
     color:          rgba($fg-color, 0.9);
     letter-spacing: 1.5px;
-
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
 
     border: 0;
     border-radius: 0;
     background-color: transparent;
 
-    width: 170px;
+    flex-grow: 1;
     padding: 5px;
 
     &::placeholder { color: inherit !important; }
   }
 
   form.search-form label {
+    justify-content: flex-start;
+    width: 100%;
+
     border-bottom-width: 1px;
     border-bottom-style: solid;
     border-color: rgba($fg-color, 0.5);
@@ -108,7 +110,7 @@ $fg-color: map-get($default-colors, 'accent-color');
 
     a {
       font-family: $font-family-serif;
-      font-weight: 400;
+      font-weight: 300;
     }
   }
 }
@@ -121,7 +123,8 @@ $fg-color: map-get($default-colors, 'accent-color');
   }
 
   ul .cat-item a {
-    font-weight: 600;
+    font-weight: 400;
+    letter-spacing: 0.2px;
   }
 
 }
