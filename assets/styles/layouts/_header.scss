@@ -148,10 +148,12 @@ $brand-font-size: 1.0625rem;
     transition: opacity 330ms ease-in 350ms;
 
     // TODO: Increase font-size for bigger resolutions
-    // TODO: Perhaps add animation when chaning sizes
+    // TODO: Perhaps add animation when scaling up/down
     .site-info {
       position: absolute;
       top: 25%;
+
+      &.no-logo { top: 36%; }
 
       display: flex;
       align-items: center;
@@ -271,23 +273,62 @@ $brand-font-size: 1.0625rem;
     margin:  0;
     list-style: none;
 
-    li {
+    li.page_item {
       border-bottom: 1px solid;
       border-color: transparentize($fg-color, 0.84);
-      padding-bottom: 6px;
+      padding-bottom: 9px;
 
       color: inherit;
 
       &:not(:last-child) { margin-bottom: 13px; }
+      &:not(.page_item_has_children) > .child-toggle { display: none; }
 
       a {
-        font-size:   .875rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        font-size:   .875em;
         font-weight: 300;
         color:       inherit;
 
         letter-spacing:  2.2px;
         text-transform:  uppercase;
         text-decoration: none;
+      }
+
+      &.page_item_has_children {
+
+        > a .child-toggle::after {
+          content: "\f020";
+          display: flex;
+
+          font-family: "mihael-icons" !important;
+          font-size: 1.285714286em;
+          font-style: normal !important;
+          font-weight: normal !important;
+          font-variant: normal !important;
+          text-transform: none !important;
+
+          speak: none;
+          line-height: 1;
+
+          -webkit-font-smoothing: antialiased;
+          -moz-osx-font-smoothing: grayscale;
+        }
+
+        &.is-active > a .child-toggle::after { content: "\f019"; }
+        &:not(.is-active) > .children { display: none; }
+
+        > .children {
+          display: none;
+          margin: 15px 0 0px 20px;
+          overflow: hidden;
+
+          font-size: 0.9em;
+
+          li:last-child { border-bottom: 0 !important; }
+        }
       }
     }
   }
@@ -475,6 +516,8 @@ $brand-font-size: 1.0625rem;
   &.is-active {
     z-index: 9999;
     opacity: 1;
+
+    overflow: scroll;
 
     transition-property: opacity, z-index;
     transition-duration: 300ms, 0ms;

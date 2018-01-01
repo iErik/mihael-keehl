@@ -19,8 +19,8 @@
 
   <div class="content-wrap">
     <div class="content">
-      <div class="site-info">
-        <a class="site-brand <?php echo ((!empty($site_logo) && ($logo_style == 'hide-title')) ? 'hide-title' : '') ?>" href="<?= esc_url( home_url('/') ); ?>">
+      <div class="site-info <?php echo (empty($site_logo) ? 'no-logo' : '') ?>">
+        <a class="site-brand <?php echo ((!empty($site_logo) && ($logo_style == 'hide-title')) ? 'hide-title' : '') ?>" href="<?php echo esc_url( home_url('/') ); ?>">
           <?php if ( !empty($site_logo) ) : ?>
             <img
               class="site-logo"
@@ -63,7 +63,9 @@
           wp_nav_menu([
             'theme_location' => 'primary',
             'menu_id'        => 'menu-id',
-            'menu_class'     => 'menu-primary'
+            'menu_class'     => 'menu-primary',
+            'link_before'    => '',
+            'link_after'     => '<span class="child-toggle"></span>'
           ]);
         ?>
       </nav>

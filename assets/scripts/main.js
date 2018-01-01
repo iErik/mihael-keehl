@@ -1,5 +1,3 @@
-import 'jquery';
-
 //  Open social links in a new tab
 //  ------------------------------
 
@@ -43,3 +41,21 @@ jQuery(($) => {
     $('.page-header .search-form').toggleClass('is-active');
   });
 });
+
+
+//  Toggle Nested Menu Items
+//  ------------------------
+
+jQuery(($) => {
+  $('.header .site-navigation .menu-primary .page_item_has_children > a .child-toggle').click(function(ev) {
+    ev.preventDefault();
+    ev.stopPropagation();
+
+    $(this).closest('.page_item_has_children')
+      .toggleClass('is-active')
+      .children('.children')
+      .slideToggle({ duration: 300 });
+
+    return false;
+  });
+})
