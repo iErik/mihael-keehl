@@ -57,7 +57,7 @@ function customize_register($wp_customize) {
 
   $wp_customize->add_setting('logo_size', array(
     'sanitize_callback' => 'absint',
-    'default'           => '68',
+    'default'           => '85',
     'transport'         => 'postMessage'
   ));
 
@@ -147,7 +147,8 @@ function customize_register($wp_customize) {
 
   $wp_customize->add_setting('body_text_color', array(
     'default'   => '#454545',
-    'transport' => 'postMessage'
+    'transport' => 'postMessage',
+    'sanitize_callback' => 'sanitize_hex_color'
   ));
 
   $wp_customize->add_control(new \WP_Customize_Color_Control($wp_customize, 'body_text_color', array(
@@ -162,7 +163,8 @@ function customize_register($wp_customize) {
 
   $wp_customize->add_setting('header_text_color', array(
     'default'   => '#FFF',
-    'transport' => 'postMessage'
+    'transport' => 'postMessage',
+    'sanitize_callback' => 'sanitize_hex_color'
   ));
 
   $wp_customize->add_control(new \WP_Customize_Color_Control($wp_customize, 'header_text_color', array(
@@ -206,7 +208,7 @@ function customize_register($wp_customize) {
   // -------------------- //
 
   $wp_customize->add_section('mihael_social', array(
-    'title'       => __( 'Social', 'mihael-kehl' ),
+    'title'       => __( 'Social', 'mihael-keehl' ),
     'priority'    => 21,
     'description' => __( 'To create a social profile like in the theme demo, do this:<br><ol><li>Go to Appearance > Menus;</li><li>Create a new menu and add links to your social networks by using the Custom Links tab;</li><li>Assign that newly created menu to the Social position.</li></ol>', 'mihael-keehl' ),
   ));
