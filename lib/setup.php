@@ -18,6 +18,9 @@ function setup() {
   // Enable post formats
   add_theme_support('post-formats', ['image', 'video', 'audio']);
 
+  // Enable Automatic Feed Links
+  add_theme_support('automatic-feed-links');
+
   // Enable plugins to manage the document title
   add_theme_support('title-tag');
 
@@ -30,9 +33,15 @@ function setup() {
     'social'  => __('Social', 'mihael-keehl')
   ]);
 
+  // Content Width
+  global $content_width;
+  if ( !isset($content_width) ) {
+    $content_width = 1040;
+  }
+
   // Use main stylesheet for visual editor
   // To add custom styles edit /assets/styles/layouts/_tinymce.scss
-  add_editor_style(Assets\asset_path('styles/main.css'));
+  add_editor_style('dist/styles/main.css');
 }
 add_action('after_setup_theme', __NAMESPACE__ . '\\setup');
 
@@ -87,7 +96,7 @@ function display_sidebar() {
  * Theme assets
  */
 function assets() {
-  wp_enqueue_style('mihael-keehl/css', Assets\asset_path('styles/main.css'), false, null);
+  wp_enqueue_style('mihael-keehl/css', get_template_directory_uri() . '/dist/styles/main.css', false, null);
 
   wp_enqueue_style('mihael-keehl/fonts', '//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i&amp;subset=latin-ext');
   wp_enqueue_style('mihael-keehl/fonts', '//fonts.googleapis.com/css?family=Merriweather:300,300i,400,400i,700,700i&amp;subset=latin-ext');
@@ -97,6 +106,6 @@ function assets() {
     wp_enqueue_script('comment-reply');
   }
 
-  wp_enqueue_script('sage/js', Assets\asset_path('scripts/main.js'), ['jquery'], null, true);
+  wp_enqueue_script('sage/js', get_template_directory_uri() . '/dist/scripts/main.js', ['jquery'], null, true);
 }
 add_action('wp_enqueue_scripts', __NAMESPACE__ . '\\assets' );

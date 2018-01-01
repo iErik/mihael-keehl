@@ -10,13 +10,14 @@
  * @link https://github.com/roots/sage/pull/1042
  */
 $sage_includes = [
-  'lib/assets.php',     // Scripts and stylesheets
-  'lib/extras.php',     // Custom functions
-  'lib/setup.php',      // Theme setup
-  'lib/titles.php',     // Page titles
-  'lib/wrapper.php',    // Theme wrapper class
-  'lib/customizer.php', // Theme customizer
-  'lib/styles.php'      // Dynamic custom styles
+//  'lib/assets.php',       // Scripts and stylesheets
+  'lib/extras.php',       // Custom functions
+  'lib/setup.php',        // Theme setup
+  'lib/titles.php',       // Page titles
+  'lib/wrapper.php',      // Theme wrapper class
+  'lib/customizer.php',   // Theme customizer
+  'lib/styles.php',       // Dynamic custom styles
+  'lib/template-tags.php' // Custom template tags
 ];
 
 foreach ($sage_includes as $file) {
