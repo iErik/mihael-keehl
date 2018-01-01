@@ -1,17 +1,19 @@
 //  Variables
 //  ---------
 
-// TODO: Perhaps make all text antialiased by default
-// TODO: Put panel content padding in a variable
+$fg-ccolor: map-get($default-colors, 'accent-color');
+$bg-color:  map-get($default-colors, 'background-color');
+
+$text-color: map-get($default-colors, 'text-body-color');
 
 //  Rules
 //  -----
 
-html, body {
-  width: 100%;
-  height: 100%;
+body {
+  width: 100vw;
+  height: 100vh;
 
-  //&.logged-in.admin-bar { padding-top: 32px; }
+  &.logged-in.admin-bar { height: calc(100vh - 32px); }
 
   @include media-breakpoint-down(xs) { font-size: .90625rem; }
 }
@@ -66,5 +68,56 @@ html, body {
         overflow: scroll;
       }
     }
+  }
+}
+
+.gallery { margin-bottom: 20px; }
+
+table { @extend .table; }
+
+blockquote {
+  position: relative;
+
+  font-size: 1rem;
+  font-style: italic;
+  color: inherit;
+
+  line-height: 1.45;
+  text-align: justify;
+
+  margin: .3125rem 0 1.3125rem 0;
+  padding: .9375rem 1.25rem .9375rem 2.8125rem;
+
+  border-left-width: 2px;
+  border-left-style: dashed;
+  border-color: darken($bg-color, 22%);
+
+  background-color: darken($bg-color, 5%);
+
+  &::before {
+    content: "\201C";
+
+    font-family: Georgia, serif;
+    font-size: 2.5rem;
+    font-weight: bold;
+
+    color: darken($bg-color, 37.5%);
+
+    position: absolute;
+    left: 10px;
+    top: .4375rem;
+  }
+
+  p:last-child { margin-bottom: 0; }
+
+  cite {
+    display: block;
+
+    font-size: .875rem;
+    color: darken($bg-color, 37.5%);
+
+    margin-top: 5px;
+
+    &::before { content: "\2014 \2009"; }
   }
 }
