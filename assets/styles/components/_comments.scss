@@ -115,6 +115,13 @@ $bg-color: map-get($default-colors, 'background-color');
         -moz-osx-font-smoothing: grayscale;
       }
 
+      .comment-awaiting-moderation {
+        font-size: .875rem;
+        font-weight: 400;
+
+        margin: 10px 0 0 60px;
+      }
+
       .reply {
         position: absolute;
         bottom: 0px;
@@ -139,16 +146,45 @@ $bg-color: map-get($default-colors, 'background-color');
   }
 }
 
-.comment-form p {
-  @extend .form-group;
+
+//  Coment Form
+//  -----------
+
+.comments-area .comment-respond {
+  margin-top: 1.5625rem;
+
+  .comment-reply-title {
+    font-weight: 300;
+    margin-bottom: .4375rem;
+  }
 }
-.comment-form input[type="text"],
-.comment-form input[type="email"],
-.comment-form input[type="url"],
-.comment-form textarea {
-  @extend .form-control;
-}
-.comment-form input[type="submit"] {
-  @extend .btn;
-  @extend .btn-secondary;
+
+.comment-form {
+  .comment-notes {
+    font-size: .90625rem;
+    font-weight: 300;
+  }
+
+  .logged-in-as {
+    font-size: .90625rem;
+    font-weight: 300;
+
+    a { color: inherit; }
+  }
+
+  p { @extend .form-group; }
+
+  textarea,
+  input[type="text"],
+  input[type="email"],
+  input[type="password"],
+  input[type="url"] {
+    @extend .form-control;
+  }
+
+  input[type="submit"] {
+    @extend .btn;
+    @extend .btn-secondary;
+  }
+
 }
