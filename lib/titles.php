@@ -1,6 +1,5 @@
 <?php
 
-// TODO: Rename module
 namespace Roots\Sage\Titles;
 
 /**
