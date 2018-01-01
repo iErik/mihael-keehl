@@ -13,5 +13,12 @@
     </ul>
   <?php endif ?>
 
+  <?php if ( get_comment_pages_count() > 1 && get_option('page_comments') ) : ?>
+    <div class="pagination comments-pagination">
+      <?php previous_comments_link( __('Older Comments', 'mihael-keehl') ); ?>
+      <?php next_comments_link( __('Newer Comments', 'mihael-keehl') ); ?>
+    </div>
+  <?php endif; ?>
+
   <?php comment_form(); ?>
 </div>
