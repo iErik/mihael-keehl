@@ -45,6 +45,14 @@
   @extend .figure-caption;
 }
 
+.gallery-caption {
+  @extend .figure-caption;
+}
+
+.bypostauthor {
+  color: map-get($default-colors, 'primary-color');
+}
+
 // Text meant only for screen readers
 .screen-reader-text {
   @extend .sr-only;
