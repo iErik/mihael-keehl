@@ -181,6 +181,8 @@ $text-color:    map-get($default-colors, 'text-body-color');
     color: $text-color;
   }
 
+  .post-footer { margin-bottom: 20px; }
+
   .post-footer .post-tags {
     font-size: .75rem;
     color: darken($fg-color, 38.5%);
