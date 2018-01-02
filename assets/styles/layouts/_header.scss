@@ -207,12 +207,15 @@ $brand-font-size: 1.0625rem;
 
       .site-desc {
         font-size:   1em;
-        font-weight: 300;
+        font-weight: 400;
 
         letter-spacing: 0.7px;
         text-align: center;
 
         line-height: 1.35;
+
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
       }
     }
 
