@@ -88,6 +88,12 @@ $fg-color: map-get($default-colors, 'accent-color');
   }
 }
 
+//  Recent Comments Widget
+.widget_recent_comments {
+
+  li.recentcomments { font-size: .8125rem; }
+}
+
 //  Text Widget
 .widget_text {
 
