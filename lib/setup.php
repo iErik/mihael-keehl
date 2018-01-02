@@ -16,7 +16,7 @@ function setup() {
   ));
 
   // Enable post formats
-  add_theme_support('post-formats', ['image', 'video', 'audio']);
+  add_theme_support('post-formats', ['image', 'video']);
 
   // Enable Automatic Feed Links
   add_theme_support('automatic-feed-links');
