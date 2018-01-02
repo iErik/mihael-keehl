@@ -2,13 +2,13 @@
 
 <section class="error-404">
   <div class="heading">
-    <h1 class="heading-main"><?php _e('Oops!', 'mihael-keehl'); ?></h1>
-    <h2 class="subheading"><?php _e('The page you’re looking for could not be found.', 'mihael-keehl'); ?></h2>
+    <h1 class="heading-main"><?php esc_html_e('Oops!', 'mihael-keehl'); ?></h1>
+    <h2 class="subheading"><?php esc_html_e('The page you’re looking for could not be found.', 'mihael-keehl'); ?></h2>
   </div>
 
   <form class="search-form" action="/" method="get" role="search">
     <label class="search-field-wrapper">
-      <span class="screen-reader-text"><?php _x('Search for', 'label', 'mihael-keehl'); ?></span>
+      <span class="screen-reader-text"><?php esc_html_x('Search for', 'label', 'mihael-keehl'); ?></span>
       <i class="icn-search"></i>
       <input
         type="search"

@@ -13,7 +13,7 @@ if ( !function_exists('mihael_post_tags') ) :
       /* translators: used between list items, there is a space after the comma */
       $tags_list = get_the_tag_list( '', __( ', ', 'mihael-keehl' ) );
       if ( $tags_list ) {
-        printf( '<span class="post-tags">' . __( 'Tagged: %1$s', 'mihael-keehl' ) . '</span>', $tags_list );
+        printf( '<span class="post-tags">' . esc_html__( 'Tagged: %1$s', 'mihael-keehl' ) . '</span>', $tags_list );
       }
     }
   }

@@ -1,5 +1,5 @@
-<?php $site_logo  = get_theme_mod( 'site_logo' ); ?>
-<?php $logo_style = get_theme_mod( 'logo_style', 'show-title' ); ?>
+<?php $mihael_site_logo  = get_theme_mod( 'site_logo' ); ?>
+<?php $mihael_logo_style = get_theme_mod( 'logo_style', 'show-title' ); ?>
 
 <div class="panel-left header page-header d-none d-lg-flex">
   <div class="panel-controls">
@@ -19,20 +19,20 @@
 
   <div class="content-wrap">
     <div class="content">
-      <div class="site-info <?php echo (empty($site_logo) ? 'no-logo' : '') ?>">
-        <a class="site-brand <?php echo ((!empty($site_logo) && ($logo_style == 'hide-title')) ? 'hide-title' : '') ?>" href="<?php echo esc_url( home_url('/') ); ?>">
-          <?php if ( !empty($site_logo) ) : ?>
+      <div class="site-info <?php echo (empty($mihael_site_logo) ? 'no-logo' : '') ?>">
+        <a class="site-brand <?php echo ((!empty($mihael_site_logo) && ($mihael_logo_style == 'hide-title')) ? 'hide-title' : '') ?>" href="<?php echo esc_url( home_url('/') ); ?>">
+          <?php if ( !empty($mihael_site_logo) ) : ?>
             <img
               class="site-logo"
-              src="<?php echo esc_url( $site_logo ); ?>"
+              src="<?php echo esc_url( $mihael_site_logo ); ?>"
               alt="<?php echo esc_attr( get_bloginfo('name') ); ?>"
             />
           <?php endif; ?>
 
-          <?php if ( !( !empty($site_logo) && ($logo_style == 'hide-title') ) ) : ?>
+          <?php if ( !( !empty($mihael_site_logo) && ($mihael_logo_style == 'hide-title') ) ) : ?>
               <?php bloginfo('name'); ?>
             </a>
-          <?php if ( !empty( get_bloginfo('description') ) ) : ?>
+          <?php if ( trim( get_bloginfo('description') ) ) : ?>
             <h2 class="site-desc">
               <?php bloginfo('description'); ?>
             </h2>
