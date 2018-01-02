@@ -179,7 +179,6 @@ $brand-font-size: 1.0625rem;
         &:not(:last-child) {
           padding-bottom: 11px;
           margin-bottom:  13.5px;
-
         }
 
         outline: 0 !important;
@@ -201,7 +200,9 @@ $brand-font-size: 1.0625rem;
         }
 
         .site-logo { width: 4.25em; margin-bottom: 20px; }
+
         &.hide-title .site-logo { margin: 0; }
+        &:only-child::after { display: none !important; }
       }
 
       .site-desc {
