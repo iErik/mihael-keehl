@@ -11,7 +11,7 @@
 
  define( 'MIHAEL_MINIMUM_PHP_VERSION', '5.4.0' );
 
- // Check is site meets theme requirements
+ // Check if site meets theme requirements
  if ( version_compare(phpversion(), MIHAEL_MINIMUM_PHP_VERSION, '<') ) :
 
    add_action('after_switch_theme', 'mihael_revert_switch', 1, 2);
