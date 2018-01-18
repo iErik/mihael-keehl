@@ -1,6 +1,6 @@
 <?php
 
-namespace Roots\Sage\Tags;
+namespace Mihael\Tags;
 
 
 if ( !function_exists('mihael_post_tags') ) :

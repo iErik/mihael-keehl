@@ -1,4 +1,4 @@
-<?php use Roots\Sage\Tags; ?>
+<?php use Mihael\Tags; ?>
 
 <article <?php post_class(); ?>>
   <header class="post-heading">
@@ -7,7 +7,7 @@
         <?php the_title(); ?>
       </h1>
     </div>
-    
+
     <?php if ( is_single() ) : ?>
       <div class="post-meta">
         <time class="post-time" datetime="<?php echo get_post_time('c', true); ?>" >

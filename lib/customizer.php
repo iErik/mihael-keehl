@@ -1,8 +1,8 @@
 <?php
 
-namespace Roots\Sage\Customizer;
+namespace Mihael\Customizer;
 
-use Roots\Sage\Assets;
+use Mihael\Assets;
 
 function customize_register($wp_customize) {
   $wp_customize->get_setting('blogname')->transport = 'postMessage';

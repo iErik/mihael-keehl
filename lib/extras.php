@@ -1,8 +1,8 @@
 <?php
 
-namespace Roots\Sage\Extras;
+namespace Mihael\Extras;
 
-use Roots\Sage\Setup;
+use Mihael\Setup;
 
 /**
  * Add <body> classes

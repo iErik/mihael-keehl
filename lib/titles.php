@@ -1,6 +1,6 @@
 <?php
 
-namespace Roots\Sage\Titles;
+namespace Mihael\Titles;
 
 /**
  * Page titles

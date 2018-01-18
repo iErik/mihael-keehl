@@ -1,4 +1,4 @@
-<?php use Roots\Sage\Titles; ?>
+<?php use Mihael\Titles; ?>
 
 <?php if (post_password_required()) { return; } ?>
 

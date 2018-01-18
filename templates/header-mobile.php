@@ -1,4 +1,4 @@
-<?php $site_logo = get_theme_mod( 'site_logo' ); ?>
+<?php $site_logo = esc_url(get_theme_mod( 'site_logo' )); ?>
 
 <div class="panel-top header page-header-mobile d-lg-none">
   <div class="content">

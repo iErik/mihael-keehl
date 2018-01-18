@@ -1,4 +1,4 @@
-<?php use Roots\Sage\Titles; ?>
+<?php use Mihael\Titles; ?>
 
 <article <?php post_class(); ?>>
 

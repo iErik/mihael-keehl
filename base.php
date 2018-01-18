@@ -1,7 +1,7 @@
 <?php
 
-use Roots\Sage\Setup;
-use Roots\Sage\Wrapper;
+use Mihael\Setup;
+use Mihael\Wrapper;
 
 ?>
 

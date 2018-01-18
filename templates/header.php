@@ -1,4 +1,4 @@
-<?php $mihael_site_logo  = get_theme_mod( 'site_logo' ); ?>
+<?php $mihael_site_logo  = esc_url(get_theme_mod( 'site_logo' )); ?>
 <?php $mihael_logo_style = get_theme_mod( 'logo_style', 'show-title' ); ?>
 
 <div class="panel-left header page-header d-none d-lg-flex">

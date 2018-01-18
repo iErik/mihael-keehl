@@ -1,8 +1,6 @@
 <?php
 
-namespace Roots\Sage\Setup;
-
-use Roots\Sage\Assets;
+namespace Mihael\Setup;
 
 /**
  * Theme setup
@@ -59,22 +57,6 @@ function widgets_init() {
   ]);
 }
 add_action('widgets_init', __NAMESPACE__ . '\\widgets_init');
-
-
-/**
- * Exclude pages from WordPress search page
- */
-if (!is_admin()) {
-  function wp_search_filter($query) {
-    if ($query->is_search) {
-      $query->set('post_type', 'post');
-    }
-
-    return $query;
-  }
-
-  add_filter('pre_get_posts', __NAMESPACE__ . '\\wp_search_filter');
-}
 
 /**
  * Determine which pages should NOT display the sidebar
