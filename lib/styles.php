@@ -38,7 +38,7 @@ function mihael_custom_styles( $custom ) {
   // Logo size
   $logo_size = get_theme_mod( 'logo_size', '68' );
   if ( !empty($logo_size) ) {
-    $custom .= '.page-header img.site-logo { width:' . intval($logo_size) . 'px; }' . "\n";
+    $custom .= '.page-header img.site-logo { width:' . intval($logo_size) . 'px !important; }' . "\n";
   }
 
   // Body background color
