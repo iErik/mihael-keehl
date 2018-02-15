@@ -88,6 +88,6 @@ function assets() {
     wp_enqueue_script('comment-reply');
   }
 
-  wp_enqueue_script('sage/js', get_template_directory_uri() . '/dist/scripts/main.js', ['jquery'], null, true);
+  wp_enqueue_script('mihael/js', get_template_directory_uri() . '/dist/scripts/main.js', ['jquery'], null, true);
 }
 add_action('wp_enqueue_scripts', __NAMESPACE__ . '\\assets' );
