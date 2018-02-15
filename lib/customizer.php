@@ -232,7 +232,7 @@ add_action('customize_register', __NAMESPACE__ . '\\customize_register');
  * Customizer JS
  */
 function customize_preview_js() {
-  wp_enqueue_script('sage/customizer', Assets\asset_path('scripts/customizer.js'), ['customize-preview'], null, true);
+  wp_enqueue_script('mihael/customizer', get_template_directory_uri() . '/dist/scripts/customizer.js', ['customize-preview'], null, true);
 }
 add_action('customize_preview_init', __NAMESPACE__ . '\\customize_preview_js');
 
